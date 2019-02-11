@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "phanson_argtok.h"
+
+void main(){
+  char* input;
+  int len = 0;
+
+  printf("$ ");
+  input = malloc(256);
+  fgets(input, 255, stdin);
+
+  len = string_length(input);
+  printf("%s\n", input);
+  printf("%d\n", len);
+
+  free(input);
+}

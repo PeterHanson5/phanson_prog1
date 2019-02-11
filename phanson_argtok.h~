@@ -1,0 +1,50 @@
+#ifndef _TOKENIZER_
+#define _TOKENIZER_
+
+int string_length(char* str){
+  int count = 0;
+  while(*str != '\0'){
+    *str++;
+    count += 1;
+  }
+  return count;
+}
+
+int find_word_start(char* str, int pos){
+  while(str[pos] != ' ' && str[pos] != '\0'){
+    pos++;
+  }
+  while(str[pos] == ' '){
+    pos++;
+  }
+  if(str[pos] == '\0'){
+    return -1;
+  }
+  return pos;
+}
+
+int find_word_end(char* str, int pos){
+  while(str[pos] != ' ' && str[pos] != '\0'){
+    pos++;
+  }
+  return pos;
+}
+
+int count_words(char* str){
+  int count = 0;
+  int index = 0;
+  while(str[index] != '\0'){
+    if(str[index] != ' ' && str[index + 1] == ' '){
+      count++;
+    }
+    if(str[index] != ' ' && str[index + 1] == '\0'){
+      count++;
+    }
+    index++;
+  }
+  return count;
+}
+
+
+  
+#endif
